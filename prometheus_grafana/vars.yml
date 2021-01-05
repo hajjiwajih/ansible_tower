@@ -1,0 +1,24 @@
+# vars file for prometheus-grafana
+# Openshift cluster URL
+openshift_url: 192.168.0.142:8443
+oc_port: 8443
+
+# Your OpenShift credentials
+username: developer
+password: developer
+
+# Administrative credentials
+admin_username: :admin
+admin_password: admin
+super_user: system:admin
+
+# Define the name of the OpenShift project
+project_name: monitoring
+
+#path to configmap file 
+configmap: /var/lib/awx/projects/prometheus-grafana/dashboards/
+
+#yml files for the template
+
+template: /var/lib/awx/projects/prometheus-grafana/monitoring-template.yaml
+node_template: /var/lib/awx/projects/prometheus-grafana/node-exporter.yaml

@@ -1,0 +1,30 @@
+---
+# vars file for back
+openshift: 192.168.42.184:8443
+
+
+# Your OpenShift credentials
+username: developer
+password: developer
+project_name: testapp
+
+
+# Administrative credentials
+admin_username: :admin
+admin_password: admin
+super_user: system:admin
+
+#MongoDB parameters 
+mongo_template_path: /var/lib/awx/projects/deploy_app/mongo.yml
+mongo_template: mongodb-petset-replication
+#db_user: sysadmin #username
+#db_password: sysadmin #user password
+#db_name: voucher #Database name
+#db_adm_pass: admin #admin password 
+
+#github secret 
+secret_name: my-secret
+file_path: /root/.git/config 
+
+#image stream
+image_stream: anis1997/ov-frontend 
