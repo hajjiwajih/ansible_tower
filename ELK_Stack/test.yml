@@ -8,7 +8,7 @@
 
     - include_tasks: setup.yml
       tags:
-	- setup
+      - setup
         - compile
 
     - name: login to openshienvironment
@@ -34,7 +34,7 @@
     - name: Create RBAC for fluentd
       shell: "oc create -f fluentd-rbac.yaml -n {{ project_name }} "
 
-    - name: Create fluentd DaemonSet
-      shell: "oc create -f fluentd-daemonset.yaml -n {{ project_name }} "
+     - name: Create fluentd DaemonSet
+       shell: "oc create -f fluentd-daemonset.yaml -n {{ project_name }} "
 
   
