@@ -1,5 +1,5 @@
 ---
-- name: Monitoring in OpenShift
+- name: Logging in OpenShift
   hosts: all
   vars_files:
    - vars.yml
