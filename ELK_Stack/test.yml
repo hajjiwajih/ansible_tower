@@ -29,7 +29,7 @@
       shell: " oc create -f kibana.yaml -n {{ project_name }}"
   
     - name: Expose kibana service
-      shell: " oc expose svc/elasticsearch -n {{ project_name }}"
+      shell: " oc expose svc/kibana -n {{ project_name }}"
 
     - name: Create RBAC for fluentd
       shell: "oc create -f fluentd-rbac.yaml -n {{ project_name }} "
