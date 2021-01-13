@@ -224,12 +224,8 @@ objects:
         scheme: http
         static_configs:
         - targets: ['localhost:9090']
+       # Scrape configuration for our backend
       - job_name: 'myapp'
-        static_configs:
-        - targets: ['voucher:3500']
-
-      # Scrape configuration for our backend
-      - job_name: 'voucher'
         static_configs:
         - targets: ['voucher:3500']
 
