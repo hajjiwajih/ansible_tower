@@ -13,14 +13,7 @@
       
     - name: login to openshienvironment
       shell: "oc login --insecure-skip-tls-verify=true -u {{ username}} -p {{ password }}  {{ openshift_url }}"
-      
-    - name: create monotoring project  
-      shell:  "oc new-project {{ project_name }}"
-      register: command_result
-      failed_when: "'exists' not in command_result.stderr and command_result.rc != 0"
-      changed_when: "'exists' not in command_result.stderr"
-      
-     
+         
     - name: Define OpenShift project
       shell: "oc project {{ project_name }}"
       register: command_result
