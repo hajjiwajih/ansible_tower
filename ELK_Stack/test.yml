@@ -20,7 +20,7 @@
       register: command_result
 
     - name: Create elasticsearch deployment and service
-      shell: "oc create -f {{elastic}} -n {{ project_name }}"
+      shell: "oc create -f elastic.yaml -n {{ project_name }}"
   
     - name: Expose elasticsearch service
       shell: "oc expose svc/elasticsearch -n {{ project_name }}"
