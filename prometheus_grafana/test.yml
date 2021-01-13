@@ -26,7 +26,7 @@
       register: command_result
     
     - name: import readymade Grafana-dashboards into a ConfigMap
-      shell: "oc create configmap dashboards-grafana --from-file={{configmap}} -n {{project_name}}"
+      shell: "oc create configmap dashboards-grafana --from-file=dashboards/ -n {{project_name}}"
 
     - name: create template
       shell: "oc new-app -p NAMESPACE={{project_name}}  -f {{template}} -n {{project_name}}"
