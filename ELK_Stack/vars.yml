@@ -1,0 +1,17 @@
+# vars file for ELK_stack
+# Openshift cluster URL
+openshift_url: 192.168.0.142:8443
+oc_port: 8443
+
+# Your OpenShift credentials
+username: developer
+password: developer
+
+# Administrative credentials
+admin_username: :admin
+admin_password: admin
+super_user: system:admin
+
+# Define the name of the OpenShift project
+project_name: kube-system
+

@@ -1,0 +1,40 @@
+---
+- name: Monitoring in OpenShift
+  hosts: all
+  vars_files:
+   - vars.yml
+
+  tasks:
+
+    - include_tasks: setup.yml
+      tags:
+	- setup
+        - compile
+
+    - name: login to openshienvironment
+      shell: "oc login --insecure-skip-tls-verify=true -u {{ username}} -p {{ password }}  {{ openshift_url }}"
+
+
+    - name: Define OpenShift project
+      shell: "oc project {{ project_name }}"
+      register: command_result
+
+    - name: Create elasticsearch deployment and service
+      shell: "oc create -f elastic.yml -n {{ project_name }}"
+  
+    - name: Expose elasticsearch service
+      shell:"oc expose svc/elasticsearch -n {{ project_name }}"
+   
+    - name: Create kibana  deployment and service
+      shell: " oc create -f kibana.yml -n {{ project_name }}"
+  
+    - name: Expose kibana service
+      shell:" oc expose svc/elasticsearch -n {{ project_name }}"
+
+    - name: Create RBAC for fluentd
+      shell: "oc create -f fluentd-rbac.yaml -n {{ project_name }} "
+
+    - name: Create fluentd DaemonSet
+      shell: "oc create -f fluentd-daemonset.yaml -n {{ project_name }} "
+
+  
