@@ -32,7 +32,7 @@ metadata:
   labels:
     service: kibana
 spec:
-  #type: NodePort
+  type: NodePort
   selector:
     run: kibana
   ports:
