@@ -35,6 +35,6 @@
       shell: "oc create -f fluentd-rbac.yaml -n {{ project_name }} "
 
     - name: Create fluentd DaemonSet
-      shell: "oc create -f fluentd-daemonset -n {{ project_name }} "
+      shell: "oc create -f fluentd-daemonset.yaml -n {{ project_name }} "
 
   
