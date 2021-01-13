@@ -23,7 +23,7 @@
       shell: "oc create -f elastic.yml -n {{ project_name }}"
   
     - name: Expose elasticsearch service
-      shell:"oc expose svc/elasticsearch -n {{ project_name }}"
+      shell: "oc expose svc/elasticsearch -n {{ project_name }}"
    
     - name: Create kibana  deployment and service
       shell: " oc create -f kibana.yml -n {{ project_name }}"
