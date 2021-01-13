@@ -14,4 +14,8 @@ super_user: system:admin
 
 # Define the name of the OpenShift project
 project_name: kube-system
-
+#file 
+elastic: /root/ansible_tower/ELK_Stack/elastic.yaml
+kibana: /root/ansible_tower/ELK_Stack/kibana.yaml
+rbac: /root/ansible_tower/ELK_Stack/fluentd-rbac.yaml
+fluentd: /root/ansible_tower/ELK_Stack/fluentd-daemonset.yaml
