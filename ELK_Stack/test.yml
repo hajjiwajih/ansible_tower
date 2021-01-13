@@ -26,15 +26,15 @@
       shell: "oc expose svc/elasticsearch -n {{ project_name }}"
    
     - name: Create kibana  deployment and service
-      shell: " oc create -f {{kibana}} -n {{ project_name }}"
+      shell: " oc create -f kibana.yaml -n {{ project_name }}"
   
     - name: Expose kibana service
       shell: " oc expose svc/elasticsearch -n {{ project_name }}"
 
     - name: Create RBAC for fluentd
-      shell: "oc create -f {{rbac}} -n {{ project_name }} "
+      shell: "oc create -f fluentd-rbac.yaml -n {{ project_name }} "
 
     - name: Create fluentd DaemonSet
-      shell: "oc create -f {{fluentd}} -n {{ project_name }} "
+      shell: "oc create -f fluentd-daemonset -n {{ project_name }} "
 
   
