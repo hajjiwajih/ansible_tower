@@ -41,7 +41,7 @@
       shell: "oc new-app {{ socket_repo_url }} --name socket-server " 
     
     - name: Expose socket-server
-      shell: "oc oc expose svc/socket-server -n {{ project_name }} "
+      shell: "oc expose svc/socket-server -n {{ project_name }} "
   
     - name: Deploy Voucher Frontend  
       shell: "oc new-app {{ frontend_repo_url }} --name ov-frontend  -n {{project_name}}"
