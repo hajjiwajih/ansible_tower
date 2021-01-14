@@ -29,7 +29,7 @@
       shell: "oc new-app mongo.yml -n {{project_name}} "
       
     - name: allow project to run as root by changing security context constraints
-      shell: "oc oadm policy add-scc-to-user anyuid -z default"
+      shell: "oc adm policy add-scc-to-user anyuid -z default"
     
     - name: Deploy Voucher_app Backend 
       shell: "oc new-app {{ backend_repo_url }} --name ov-backend  -n {{ project_name}} "
