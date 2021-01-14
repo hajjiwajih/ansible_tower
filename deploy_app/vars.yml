@@ -1,6 +1,6 @@
 ---
 # vars file for back
-openshift: 192.168.42.184:8443
+openshift: 192.168.0.142:8443
 
 
 # Your OpenShift credentials
