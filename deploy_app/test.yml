@@ -43,6 +43,6 @@
     - name: Expose socket-server
       shell: "oc oc expose svc/socket-server -n {{ project_name }} "
   
-   - name: Deploy Voucher Frontend  
-     shell:"oc new-app {{ frontend_repo_url }}  -n {{project_name}}"
+    - name: Deploy Voucher Frontend  
+      shell: "oc new-app {{ frontend_repo_url }}  -n {{project_name}}"
 
