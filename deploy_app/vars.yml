@@ -13,3 +13,8 @@ project_name: testapp
 admin_username: :admin
 admin_password: admin
 super_user: system:admin
+ 
+# github project repo
+backend_repo_url: https://github.com/Anis-Abaza/ov-backend.git
+socket_repo_url: https://github.com/Anis-Abaza/socket-server.git
+frontend_repo_url: https://github.com/Anis-Abaza/ov-frontend.git
