@@ -32,16 +32,17 @@
       shell: "oc oadm policy add-scc-to-user anyuid -z default"
     
     - name: Deploy Voucher_app Backend 
-      shell: "oc new-app {{ backend_rep_url }} --name ov-backend  -n {{ project_name}} "
+      shell: "oc new-app {{ backend_repo_url }} --name ov-backend  -n {{ project_name}} "
   
     - name: Expose backend service
       shell: "oc expose svc/ov-backend -n {{ project_name }} "
 
     - name: Deploy Socket-Server
-      shell: "oc new-app {{ socket_rep_url }} --name ov-backend "
-      
-      
+      shell: "oc new-app {{ socket_repo_url }} --name ov-backend " 
+    
+    - name: Expose socket-server
+      shell: "oc oc expose svc/socket-server -n {{ project_name }} "
   
-   - name: Deploy frontend using imagestream 
-     shell:" ic new-app {{image_stream}} --confirm -n {{project_name}}"
+   - name: Deploy Voucher Frontend  
+     shell:"oc new-app {{ frontend_repo_url }}  -n {{project_name}}"
 
