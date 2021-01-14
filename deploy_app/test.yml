@@ -25,26 +25,21 @@
       register: command_result
    
 
-    - name: import mongodb template 
-      shell: "oc create -f {{mongo_template_path}} -n {{project_name}} "
-
-    - name: Create MongoDB template 
-      shell: "oc new-app  {{ mongo_template}}  -n {{ project_name }}"     
+    - name: Create mongodb with 3 replica Set 
+      shell: "oc new-app mongo.yml -n {{project_name}} "
+      
+    -  
     
-    - name: Sleep for 20 seconds until mongodb is deployed 
-      wait_for:
-        timeout: 20
-      delegate_to: localhost
-
-    
-    - name: Deploy Backend from github repo 
-      shell: "oc new-app nodejs~https://github.com/Anis-Abaza/ov-backend.git --name ov-backend  -n {{ project_name}} "
+    - name: Deploy Voucher_app Backend 
+      shell: "oc new-app {{ backend_rep_url }} --name ov-backend  -n {{ project_name}} "
   
-    - name: Deploy Socket-server from github repo
-      shell: "oc new-app nodejs~https://github.com/Anis-Abaza/socket-server.git -n {{ project_name }} "
+    - name: Expose backend service
+      shell: "oc expose svc/ov-backend -n {{ project_name }} "
 
-    - name: Import frontend image stream from Dockerhub
-      shell: "oc import-image {{image_stream}} --confirm -n {{ project_name }}"
+    - name: Deploy Socket-Server
+      shell: "oc new-app {{ socket_rep_url }} --name ov-backend "
+      
+      
   
    - name: Deploy frontend using imagestream 
      shell:" ic new-app {{image_stream}} --confirm -n {{project_name}}"
