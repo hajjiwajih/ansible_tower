@@ -28,7 +28,8 @@
     - name: Create mongodb with 3 replica Set 
       shell: "oc new-app mongo.yml -n {{project_name}} "
       
-    -  
+    - name: allow project to run as root by changing security context constraints
+      shell: "oc oadm policy add-scc-to-user anyuid -z default"
     
     - name: Deploy Voucher_app Backend 
       shell: "oc new-app {{ backend_rep_url }} --name ov-backend  -n {{ project_name}} "
