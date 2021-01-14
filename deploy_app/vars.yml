@@ -6,7 +6,7 @@ openshift: 192.168.42.184:8443
 # Your OpenShift credentials
 username: developer
 password: developer
-project_name: testapp
+project_name: voucher
 
 
 # Administrative credentials
